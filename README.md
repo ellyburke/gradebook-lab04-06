@@ -48,4 +48,4 @@ This is my working version of the gradebook from Labs 04-06.
 ### Optional things I implemented:
 - The gradebook sorts on the click of a column header. Users can toggle between ascending and descending order with a click of the arrow that appears beside the header
 
-I have decided to host my website on github.
+I have decided to host my website on github. The index.html page will redirect to spreadsheet.html.
