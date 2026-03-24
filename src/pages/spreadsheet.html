@@ -1,0 +1,118 @@
+<!-- src/pages/spreadsheet.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gradebook Explorer</title>
+
+  <link rel="stylesheet" href="../css/spreadsheet.css"/>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+  <!-- D3 -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+  <!-- Lab JS -->
+  <script src="../js/gradebook.js" defer></script>
+  <script src="../js/chart.js" defer></script>
+  <script src="../js/spreadsheet.js" defer></script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Gradebook Explorer</h1>
+    <p>
+      Explore a gradebook by selecting rows/columns, editing marks, and visualizing grade distributions.
+    </p>
+  </header>
+
+
+  <main class="page-content">
+
+    <!-- Selection Summary -->
+    <section class="card">
+
+      <h3><strong>Selection Summary</strong></h3>
+
+      <div class="selection-summary">
+
+        <div class="summary-item">
+          <div class="label">Selected</div>
+          <div class="value" id="selected"><span id="selected-type">None</span>: <span id="header-name">—</span></div>
+        </div>
+
+        <div class="summary-item">
+          <div class="label">Count</div>
+          <div class="value" id="count">0</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="label">Mean</div>
+          <div class="value" id="mean">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="label">Min</div>
+          <div class="value" id="min">—</div>
+        </div>
+
+        <div class="summary-item">
+          <div class="label">Max</div>
+          <div class="value" id="max">—</div>
+        </div>
+
+      </div>
+
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ul>
+          <li>Click a <strong>column header</strong> to select an assessment.</li>
+          <li>Click a <strong>row header</strong> to select a student.</li>
+          <li>Click a <strong>grade cell</strong> to edit; press <strong>ENTER</strong> to save.</li>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- Gradebook Card -->
+    <section class="card">
+
+      <h3><strong>Gradebook</strong></h3> 
+      <table id="gradebook">
+
+        <thead>
+          <tr>
+            <!-- Indexes correspond to the column index in the marks objects (e.g. Lab 1 is index 1, Lab 2 is index 2, etc.) -->
+            <th>Student</th>
+            <th onclick="selectColumn(1, 'Lab 1')">Lab 1</th>
+            <th onclick="selectColumn(2, 'Lab 2')">Lab 2</th>
+            <th onclick="selectColumn(3, 'Lab 3')">Lab 3</th>
+            <th onclick="selectColumn(4, 'Midterm')">Midterm</th>
+            <th onclick="selectColumn(5, 'Final')">Final</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Where the grades are going to be dynamically inserted using js -->
+        </tbody>
+
+      </table>
+
+    </section>
+
+    <!-- D3 chart will go here -->
+    <div id="chart-container">
+      <h3><strong>Grade Distribution (A-F)</strong></h3>
+    </div>
+
+  </main>
+
+</body>
+</html>
